@@ -147,7 +147,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Product Image 1</label>
-                                        <input id="image" type="file" name="image" class="file-upload-default" required>
+                                        <input id="image1" type="file" name="image1" class="file-upload-default" required>
                                         <div class="input-group col-sm-9">
                                             <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
                                             <span class="input-group-append">
@@ -159,7 +159,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Product Image 2</label>
-                                        <input id="image" type="file" name="image" class="file-upload-default" required>
+                                        <input id="image2" type="file" name="image2" class="file-upload-default" required>
                                         <div class="input-group col-sm-9">
                                             <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
                                             <span class="input-group-append">
@@ -171,7 +171,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Product Image 3</label>
-                                        <input id="image" type="file" name="image" class="file-upload-default" required>
+                                        <input id="image3" type="file" name="image3" class="file-upload-default" required>
                                         <div class="input-group col-sm-9">
                                             <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
                                             <span class="input-group-append">
