@@ -77,67 +77,61 @@ class AdminController extends Controller
     }
 
     public function AddProduct(Request $request)
-{
-    if (Auth::check()) {
-        $userType = Auth::user()->usertype;
-        if ($userType == 1) {
-
-            $product = new Product();
-            $product->title = $request->title;
-            $product->category = $request->category;
-            $product->material = $request->material;
-            $product->size = $request->size;
-            $product->color = $request->color;
-            $product->design_type = $request->design_type;
-            $product->price = $request->price;
-            $product->discount_price = $request->discount_price;
-            $product->quantity = $request->quantity;
-
-            // Handle image upload for 'image'
-            if ($request->hasFile('image')) {
-                $image = $request->file('image');
-                $imageName = time() . '.' . $image->getClientOriginalExtension();
-                $image->move('products_images', $imageName);
-                $product->image = $imageName;
+    {
+        if (Auth::check()) {
+            $userType = Auth::user()->usertype;
+            if ($userType == 1) {
+                // Validate the request
+                $request->validate([
+                    'title' => 'required|string|max:255',
+                    'category' => 'required|string|max:255',
+                    'material' => 'required|string|max:255',
+                    'size' => 'required|string|max:255',
+                    'color' => 'required|string|max:255',
+                    'design_type' => 'required|string|max:255',
+                    'price' => 'required|numeric|min:0',
+                    'discount_price' => 'nullable|numeric|min:0',
+                    'quantity' => 'required|integer|min:1',
+                    'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                ]);
+    
+                // Create and save the product
+                $product = new Product();
+                $product->title = $request->title;
+                $product->category = $request->category;
+                $product->material = $request->material;
+                $product->size = $request->size;
+                $product->color = $request->color;
+                $product->design_type = $request->design_type;
+                $product->price = $request->price;
+                $product->discount_price = $request->discount_price;
+                $product->quantity = $request->quantity;
+                $product->save();
+    
+                // Handle multiple image uploads
+                if ($request->hasFile('images')) {
+                    foreach ($request->file('images') as $image) {
+                        $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+                        $image->move('products_images', $imageName);
+    
+                        // Save the image in the images table
+                        Image::create([
+                            'product_id' => $product->id,
+                            'image_url' => 'products_images/' . $imageName,
+                        ]);
+                    }
+                }
+    
+                Alert::success('Product Added Successfully!', 'You have added a new product');
+                return redirect()->route('admin.show_product');
+            } else {
+                return redirect('login');
             }
-
-            // Handle image upload for 'image1'
-            if ($request->hasFile('image1')) {
-                $image1 = $request->file('image1');
-                $image1Name = time() . '.' . $image1->getClientOriginalExtension();
-                $image1->move('products_images', $image1Name);
-                $product->image1 = $image1Name;
-            }
-
-            // Handle image upload for 'image2'
-            if ($request->hasFile('image2')) {
-                $image2 = $request->file('image2');
-                $image2Name = time() . '.' . $image2->getClientOriginalExtension();
-                $image2->move('products_images', $image2Name);
-                $product->image2 = $image2Name;
-            }
-
-            // Handle image upload for 'image3'
-            if ($request->hasFile('image3')) {
-                $image3 = $request->file('image3');
-                $image3Name = time() . '.' . $image3->getClientOriginalExtension();
-                $image3->move('products_images', $image3Name);
-                $product->image3 = $image3Name;
-            }
-
-            // Save the product to the database
-            $product->save();
-
-            Alert::success('Product Added Successfully!', 'You have added a new product');
-            return redirect()->route('admin.show_product');
-
         } else {
             return redirect('login');
         }
-    } else {
-        return redirect('login');
     }
-}
+    
 
 
 
