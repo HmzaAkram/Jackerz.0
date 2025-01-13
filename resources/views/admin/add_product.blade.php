@@ -132,54 +132,21 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label">Product Image</label>
-                                        <input id="image" type="file" name="image" class="file-upload-default" required>
-                                        <div class="input-group col-sm-9">
-                                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                                            <span class="input-group-append">
-                                                <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label">Product Image 1</label>
-                                        <input id="image1" type="file" name="image1" class="file-upload-default" required>
-                                        <div class="input-group col-sm-9">
-                                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                                            <span class="input-group-append">
-                                                <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label">Product Image 2</label>
-                                        <input id="image2" type="file" name="image2" class="file-upload-default" required>
-                                        <div class="input-group col-sm-9">
-                                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                                            <span class="input-group-append">
-                                                <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label">Product Image 3</label>
-                                        <input id="image3" type="file" name="image3" class="file-upload-default" required>
-                                        <div class="input-group col-sm-9">
-                                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                                            <span class="input-group-append">
-                                                <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
+                                <div class="col-md-12">
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Product Images</label>
+        <div class="col-sm-9">
+            <input id="images" type="file" name="images[]" class="file-upload-default" multiple required>
+            <div class="input-group">
+                <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Images">
+                <span class="input-group-append">
+                    <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
