@@ -92,7 +92,7 @@
                     <img src="/products_images/{{$product->image}}" alt="product image">
                 </figure>
             </div>
-            <!-- Additional images -->
+            <!-- Additional images
             @if($product->image1)
             <div class="swiper-slide">
                 <figure class="border-radius-10">
@@ -113,7 +113,7 @@
                     <img src="/products_images/{{$product->image3}}" alt="product image 3">
                 </figure>
             </div>
-            @endif
+            @endif -->
         </div>
 
         <!-- Navigation Arrows -->
