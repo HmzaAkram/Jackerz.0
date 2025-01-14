@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
+
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
@@ -236,12 +238,12 @@ class AdminController extends Controller
 
                 if ($request->hasFile('image')) {
                     $image = $request->image;
-                    @unlink(public_path('products_images/' . $product->image));
+                    @unlink(public_path('products_images/' . $image->image_url));
                     $imageName = time() . '.' . $image->getClientOriginalExtension();
                     $request->image->move('products_images', $imageName);
-                    $product->image = $imageName;
+                    $image->image_url = $imageName;
                 } else {
-                    $product->image = $product->image;
+                    $image->image_url = $image->image_url;
                 }
                 $product->save();
 

@@ -62,7 +62,7 @@
             @foreach($categories as $category)
                 <div class="tab-pane fade" id="tab-{{$category->id}}" role="tabpanel" aria-labelledby="tab-{{$category->id}}">
                     <div class="row product-grid-4">
-                        @foreach ($products as $product)
+                        @foreach ($product->images as $image)
                             @if($product->category == $category->category_name)
                                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6">
                                     <div class="product-cart-wrap mb-30">

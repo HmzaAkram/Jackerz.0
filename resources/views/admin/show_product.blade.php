@@ -58,9 +58,10 @@
                         </thead>
                         <tbody>
                           @forelse($products as $product)
+                          
                             <tr>
                                 <td>
-                                    <img src="products_images/{{$product->image}}" alt="image" />
+                                    <img src="products_images/{{$image->image_url}}" alt="image" />
                                 </td>
                                 <td>{{$product->category}}</td>
                                 <td>{{$product->material}}</td>
