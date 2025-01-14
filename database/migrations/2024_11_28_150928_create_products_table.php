@@ -20,8 +20,9 @@ return new class extends Migration
         $table->string('material');
         $table->string('size');
         $table->string('color');
-        $table->string('design');
-        $table->text('description')->nullable();
+        
+        $table->string('design_type')->nullable();
+
         $table->decimal('price', 8, 2);
         $table->decimal('discount_price', 8, 2)->nullable();
         $table->integer('quantity');
