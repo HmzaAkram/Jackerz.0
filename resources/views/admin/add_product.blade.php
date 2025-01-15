@@ -39,7 +39,7 @@
             <div class="row">
                 <div class="col-12 grid-margin">
                     <div class="card">
-                        <form action="{{route('admin.add_product')}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('admin.add_product')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                         <div class="card-body">
                             <h4 class="card-title">Add Product Form</h4>
@@ -49,7 +49,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Product Title</label>
                                         <div class="col-sm-9">
-                                            <input name="title" type="text" class="form-control" style="color: #fff" required/>
+                                            <input name="title" type="text" class="form-control" style="color: #fff"/>
                                         </div>
                                     </div>
                                 </div>
@@ -57,7 +57,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Category</label>
                                         <div class="col-sm-9">
-                                            <select name="category" class="form-control" required style="color: #fff">
+                                            <select name="category" class="form-control" style="color: #fff">
                                                 @foreach ($categories as $category)
                                                 <option value="{{$category->category_name}}">{{$category->category_name}}</option>
                                                 @endforeach
@@ -72,7 +72,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Material</label>
                                         <div class="col-sm-9">
-                                            <input name="material" placeholder="ex: Leather" type="text" class="form-control" style="color: #fff" required/>
+                                            <input name="material" placeholder="ex: Leather" type="text" class="form-control" style="color: #fff"/>
                                         </div>
                                     </div>
                                 </div>
@@ -80,7 +80,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Size</label>
                                         <div class="col-sm-9">
-                                            <input name="size" placeholder="ex: S, M, L, XL" type="text" class="form-control" style="color: #fff" required/>
+                                            <input name="size" placeholder="ex: S, M, L, XL" type="text" class="form-control" style="color: #fff"/>
                                         </div>
                                     </div>
                                 </div>
@@ -90,7 +90,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Color</label>
                                         <div class="col-sm-9">
-                                            <input name="color" placeholder="ex: Brown, Black" type="text" class="form-control" style="color: #fff" required/>
+                                            <input name="color" placeholder="ex: Brown, Black" type="text" class="form-control" style="color: #fff"/>
                                         </div>
                                     </div>
                                 </div>
@@ -98,7 +98,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Design Type</label>
                                         <div class="col-sm-9">
-                                            <input name="design_type" placeholder="ex: Biker, Bomber" type="text" class="form-control" style="color: #fff" required/>
+                                            <input name="design_type" placeholder="ex: Biker, Bomber" type="text" class="form-control" style="color: #fff"/>
                                         </div>
                                     </div>
                                 </div>
@@ -109,7 +109,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Price</label>
                                         <div class="col-sm-9">
-                                            <input name="price" placeholder="ex: $120" type="text" class="form-control" style="color: #fff" required/>
+                                            <input name="price" placeholder="ex: $120" type="text" class="form-control" style="color: #fff"/>
                                         </div>
                                     </div>
                                 </div>
@@ -117,7 +117,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Discount Price</label>
                                         <div class="col-sm-9">
-                                            <input name="discount_price" placeholder="ex: 10%" type="text" class="form-control" style="color: #fff" required/>
+                                            <input name="discount_price" placeholder="ex: 10%" type="text" class="form-control" style="color: #fff"/>
                                         </div>
                                     </div>
                                 </div>
@@ -128,7 +128,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Quantity</label>
                                         <div class="col-sm-9">
-                                            <input name="quantity" placeholder="ex: 20" type="text" class="form-control" style="color: #fff" required/>
+                                            <input name="quantity" placeholder="ex: 20" type="text" class="form-control" style="color: #fff"/>
                                         </div>
                                     </div>
                                 </div>
@@ -136,7 +136,7 @@
     <div class="form-group row">
         <label class="col-sm-3 col-form-label">Product Images</label>
         <div class="col-sm-9">
-            <input id="images" type="file" name="images[]" class="file-upload-default" multiple required>
+            <input id="images" type="file" name="images[]" class="file-upload-default" multiple>
             <div class="input-group">
                 <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Images">
                 <span class="input-group-append">

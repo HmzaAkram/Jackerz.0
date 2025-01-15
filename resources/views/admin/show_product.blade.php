@@ -57,11 +57,10 @@
                           </tr>
                         </thead>
                         <tbody>
-                          @forelse($products as $product)
-                          
+                          @forelse($products as $product)         
                             <tr>
                                 <td>
-                                    <img src="products_images/{{$image->image_url}}" alt="image" />
+                                    <img src='{{asset("products_images/". $product->images[0]->image_url)}}' alt="image" />
                                 </td>
                                 <td>{{$product->category}}</td>
                                 <td>{{$product->material}}</td>

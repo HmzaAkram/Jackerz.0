@@ -24,8 +24,8 @@
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">
                                         <a href="{{url('product_details', $product->id)}}">
-                                            <img class="default-img" src="/products_images/{{$product->image}}" alt="product_image">
-                                            <img class="hover-img" src="/products_images/{{$product->image}}" alt="product_image">
+                                            <img class="default-img" src='{{asset("products_images/". $product->images[0]->image_url)}}' alt="product_image">
+                                            <img class="hover-img" src='{{asset("products_images/". $product->images[0]->image_url)}}' alt="product_image">
                                         </a>
                                     </div>
                                     <div class="product-action-1">
@@ -69,8 +69,8 @@
                                         <div class="product-img-action-wrap">
                                             <div class="product-img product-img-zoom">
                                                 <a href="{{url('product_details', $product->id)}}">
-                                                    <img class="default-img" src="/products_images/{{$product->image}}" alt="product_image">
-                                                    <img class="hover-img" src="/products_images/{{$product->image}}" alt="product_image">
+                                                    <img class="default-img" src='{{asset("products_images/". $product->images[0]->image_url)}}' alt="product_image">
+                                                    <img class="hover-img" src='{{asset("products_images/". $product->images[0]->image_url)}}' alt="product_image">
                                                 </a>
                                             </div>
                                             <div class="product-action-1">

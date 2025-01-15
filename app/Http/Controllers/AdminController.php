@@ -80,6 +80,7 @@ class AdminController extends Controller
 
     public function AddProduct(Request $request)
     {
+
         if (Auth::check()) {
             $userType = Auth::user()->usertype;
             if ($userType == 1) {
@@ -94,7 +95,7 @@ class AdminController extends Controller
                     'price' => 'required|numeric|min:0',
                     'discount_price' => 'nullable|numeric|min:0',
                     'quantity' => 'required|integer|min:1',
-                    'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                    // 'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
                 ]);
     
                 // Create and save the product
@@ -111,18 +112,19 @@ class AdminController extends Controller
                 $product->save();
     
                 // Handle multiple image uploads
-                if ($request->hasFile('images')) {
-                    foreach ($request->file('images') as $image) {
-                        $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
-                        $image->move('products_images', $imageName);
-    
-                        // Save the image in the images table
-                        Image::create([
-                            'product_id' => $product->id,
-                            'image_url' => 'products_images/' . $imageName,
-                        ]);
-                    }
-                }
+               if ($request->images) {
+            foreach ($request->images as $image) {
+                $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+                $image->move('products_images', $imageName);
+               
+                // // Save the image in the images table
+                Image::create([
+                    'product_id' => $product->id,
+                    'image_url' => $imageName, // Store the relative path
+                ]);
+            }
+
+        }
     
                 Alert::success('Product Added Successfully!', 'You have added a new product');
                 return redirect()->route('admin.show_product');
@@ -160,7 +162,9 @@ class AdminController extends Controller
             $userType = Auth::user()->usertype;
             if ($userType == 1) {
 
-                $products = Product::orderBy('id', 'desc')->get();
+                // $products = Product::orderBy('id', 'desc')->get();
+                $products = Product::with('images')->orderBy('id', 'desc')->get();
+                // return $products;
                 return view('admin.show_product', compact('products'));
 
             } else {

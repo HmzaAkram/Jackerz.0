@@ -16,15 +16,15 @@
     <link rel="stylesheet" href="user/assets/css/main.css">
     <link rel="stylesheet" href="user/assets/css/custom.css">
     <!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
 <!-- Bootstrap JS & Popper (needed for carousel) -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
+    <!-- <style>
         th{
             font-weight: bold;
             font-size: 14px;
@@ -61,7 +61,7 @@
         .unclickable-input {
             pointer-events: none;
         }
-    </style>
+    </style> -->
 </head>
 
 <body>
@@ -89,7 +89,7 @@
             <!-- First image -->
             <div class="swiper-slide">
                 <figure class="border-radius-10">
-                    <img src="/products_images/{{$product->image}}" alt="product image">
+                    <img src='{{asset("products_images/". $product->images[0]->image_url)}}' alt="product image">
                 </figure>
             </div>
             <!-- Additional images
@@ -117,13 +117,15 @@
         </div>
 
         <!-- Navigation Arrows -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+        <!-- <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div> -->
     </div>
 </div>
-
+@foreach ($product->images as $images)
+                    <img src='{{asset("products_images/". $images->image_url)}}' height="100" width="auto" alt="product image">
+                    @endforeach
 <!-- Initialize Swiper.js -->
-<script>
+<!-- <script>
     const swiper = new Swiper('.product-image-slider', {
         loop: true, // Enable infinite loop
         navigation: {
@@ -131,7 +133,7 @@
             prevEl: '.swiper-button-prev',
         },
     });
-</script>
+</script> -->
 
 </div>
 
@@ -168,7 +170,7 @@
             <div class="detail-extralink">
                 <form action="{{url('add-to-cart',$product->id)}}" method="post">
                     @csrf
-                    <div class="number">
+                    <div class="number" >
                         <span class="minus">-</span>
                         <input class="unclickable-input" name="quantity" type="number" value="1" min="1"/>
                         <span class="plus">+</span>
