@@ -177,9 +177,11 @@
                     </div>
                     <div class="product-extra-link2">
                         @if($product->quantity <1)
+                            <div>
                             <p style="font-size: 12px;">
                                 Availability:<span class="in-stock text-danger ml-5">{{$product->quantity}} Items In Stock</span>
                             </p>
+                            </div>
                             <button style="opacity: 0.5;cursor: not-allowed;" disabled type="submit" class="button button-add-to-cart">Add to cart</button>
                         @else
                             <button type="submit" class="button button-add-to-cart">Add to cart</button>

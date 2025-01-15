@@ -154,7 +154,7 @@
                             <ul>
                                 <li><a class="active" href="{{url('/')}}">Home </a></li>
                                 <li><a href="{{route('user.shop')}}">Shop</a></li>                             
-                                <li><a href="{{route('about')}}">About</a></li>
+                                <li><a href="{{ route('user.about') }}">About</a></li>
                                 <li><a href="{{route('user.contact')}}">Contact</a></li>
                                 @if (Route::has('login'))
                                     @auth

@@ -71,7 +71,9 @@ Route::get('/order-received/{id}', [HomeController::class, 'OrderReceived']);
 Route::get('/cancel-order/{id}', [HomeController::class, 'CancelOrder']);
 Route::get('/search-a-product', [HomeController::class, 'SearchProduct']);
 Route::get('/update-password', [HomeController::class, 'UpdatePassword']);
-Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/about', [HomeController::class, 'about'])->name('user.about');
+// Route::view('/about', 'user.about')->name('about');/ 
+
 
 
 Route::get('/cash-order', [HomeController::class, 'CashOrder']);
