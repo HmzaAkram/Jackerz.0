@@ -15,53 +15,6 @@
     <link rel="shortcut icon" type="image/x-icon" href="user/assets/imgs/theme/favicon.ico">
     <link rel="stylesheet" href="user/assets/css/main.css">
     <link rel="stylesheet" href="user/assets/css/custom.css">
-    <!-- Bootstrap CSS -->
-<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-<!-- Bootstrap JS & Popper (needed for carousel) -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
-    <!-- <style>
-        th{
-            font-weight: bold;
-            font-size: 14px;
-            background-color: #DBDFEA;
-        }
-        td p{
-            font-size: 13px;
-        }
-        	span {cursor:pointer; }
-		.number{
-			margin:10px 0;
-		}
-		.minus, .plus{
-			width:40px;
-			height:40px;
-			background:#f2f2f2;
-			border-radius:4px;
-			padding:8px 5px 8px 5px;
-			border:1px solid #ddd;
-            display: inline-block;
-            vertical-align: middle;
-            text-align: center;
-        }
-        input{
-            height:34px;
-            width: 100px;
-            text-align: center;
-            font-size: 26px;
-            border:1px solid #ddd;
-            border-radius:4px;
-            display: inline-block;
-            vertical-align: middle;
-        }
-        .unclickable-input {
-            pointer-events: none;
-        }
-    </style> -->
 </head>
 
 <body>
@@ -81,62 +34,56 @@
                     <div class="col-lg-9">
                         <div class="product-detail accordion-detail">
                         <div class="row mb-50">
-                        <div class="col-md-6 col-sm-12 col-xs-12">
-                        <div class="detail-gallery">
-    <!-- Product Image Slider -->
-    <div class="product-image-slider swiper-container">
-        <div class="swiper-wrapper">
-            <!-- First image -->
-            <div class="swiper-slide">
-                <figure class="border-radius-10">
-                    <img src='{{asset("products_images/". $product->images[0]->image_url)}}' alt="product image">
-                </figure>
-            </div>
-            <!-- Additional images
-            @if($product->image1)
-            <div class="swiper-slide">
-                <figure class="border-radius-10">
-                    <img src="/products_images/{{$product->image1}}" alt="product image 1">
-                </figure>
-            </div>
-            @endif
-            @if($product->image2)
-            <div class="swiper-slide">
-                <figure class="border-radius-10">
-                    <img src="/products_images/{{$product->image2}}" alt="product image 2">
-                </figure>
-            </div>
-            @endif
-            @if($product->image3)
-            <div class="swiper-slide">
-                <figure class="border-radius-10">
-                    <img src="/products_images/{{$product->image3}}" alt="product image 3">
-                </figure>
-            </div>
-            @endif -->
-        </div>
 
-        <!-- Navigation Arrows -->
-        <!-- <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div> -->
+<!-- --------------------------------------------------------------------------------->
+<div class="col-md-6 col-sm-12 col-xs-12">
+    <div class="detail-gallery">
+        <!-- Product Image Slider -->
+        <div class="product-image-slider swiper-container">
+            <div class="swiper-wrapper">
+              
+                    <div class="swiper-slide">
+                        <figure class="border-radius-10" style="overflow: hidden; text-align: center;">
+                            <img src='{{asset("products_images/" . $product->images[0]->image_url)}}' alt="product image" style="width: 100%; height: 450px; border-radius: 10px;">
+                        </figure>
+                    </div>
+                
+            </div>
+        </div>
+        
+        <!-- Thumbnail Images -->
+        <div class="thumbnail-images" style="display: flex; gap: 10px; margin-top: 15px;">
+            @foreach ($product->images as $index => $image)
+                <div class="thumbnail" style="border: 1px solid #ddd; padding: 5px; border-radius: 5px; cursor: pointer; width: 100px; text-align: center;" data-slide="{{ $index }}">
+                    <img src='{{ asset("products_images/" . $image->image_url) }}' alt="product thumbnail" style="width: 100%; height: auto; border-radius: 5px;">
+                </div>
+            @endforeach
+        </div>
     </div>
 </div>
-@foreach ($product->images as $images)
-                    <img src='{{asset("products_images/". $images->image_url)}}' height="100" width="auto" alt="product image">
-                    @endforeach
-<!-- Initialize Swiper.js -->
-<!-- <script>
-    const swiper = new Swiper('.product-image-slider', {
-        loop: true, // Enable infinite loop
+
+<script>
+    // Initialize Swiper
+    const swiper = new Swiper('.swiper-container', {
+        loop: false,  // Disable loop here so that images are not repeated
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
     });
-</script> -->
 
-</div>
-
+    // Thumbnail click functionality
+    document.querySelectorAll('.thumbnail').forEach((thumbnail, index) => {
+        thumbnail.addEventListener('click', () => {
+            swiper.slideTo(index);  // Change to the slide corresponding to the thumbnail clicked
+        });
+    });
+</script>
+<!-- ------------------------------------------------------------------------------- -->
 
     <div class="col-md-6 col-sm-12 col-xs-12">
         <div class="detail-info">
