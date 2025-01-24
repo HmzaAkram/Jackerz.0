@@ -38,23 +38,15 @@
 <!-- --------------------------------------------------------------------------------->
 <div class="col-md-6 col-sm-12 col-xs-12">
     <div class="detail-gallery">
-        <!-- Product Image Slider -->
-        <div class="product-image-slider swiper-container">
-            <div class="swiper-wrapper">
-              
-                    <div class="swiper-slide">
-                        <figure class="border-radius-10" style="overflow: hidden; text-align: center;">
-                            <img src='{{asset("products_images/" . $product->images[0]->image_url)}}' alt="product image" style="width: 100%; height: 450px; border-radius: 10px;">
-                        </figure>
-                    </div>
-                
-            </div>
+        <!-- Main Product Image -->
+        <div class="product-main-image" style="overflow: hidden; text-align: center; border-radius: 10px; margin-bottom: 15px;">
+            <img id="mainImage" src='{{asset("products_images/" . $product->images[0]->image_url)}}' alt="product image" style="width: 100%; height: 450px; border-radius: 10px;">
         </div>
-        
+
         <!-- Thumbnail Images -->
         <div class="thumbnail-images" style="display: flex; gap: 10px; margin-top: 15px;">
             @foreach ($product->images as $index => $image)
-                <div class="thumbnail" style="border: 1px solid #ddd; padding: 5px; border-radius: 5px; cursor: pointer; width: 100px; text-align: center;" data-slide="{{ $index }}">
+                <div class="thumbnail" style="border: 1px solid #ddd; padding: 5px; border-radius: 5px; cursor: pointer; width: 100px; text-align: center;" data-image-url="{{ asset('products_images/' . $image->image_url) }}">
                     <img src='{{ asset("products_images/" . $image->image_url) }}' alt="product thumbnail" style="width: 100%; height: auto; border-radius: 5px;">
                 </div>
             @endforeach
@@ -63,26 +55,19 @@
 </div>
 
 <script>
-    // Initialize Swiper
-    const swiper = new Swiper('.swiper-container', {
-        loop: false,  // Disable loop here so that images are not repeated
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-    });
+    // Reference to the main image element
+    const mainImage = document.getElementById('mainImage');
 
-    // Thumbnail click functionality
-    document.querySelectorAll('.thumbnail').forEach((thumbnail, index) => {
+    // Add event listeners to all thumbnails
+    document.querySelectorAll('.thumbnail').forEach(thumbnail => {
         thumbnail.addEventListener('click', () => {
-            swiper.slideTo(index);  // Change to the slide corresponding to the thumbnail clicked
+            // Update the main image source with the clicked thumbnail's image URL
+            const newImageUrl = thumbnail.getAttribute('data-image-url');
+            mainImage.src = newImageUrl;
         });
     });
 </script>
+
 <!-- ------------------------------------------------------------------------------- -->
 
     <div class="col-md-6 col-sm-12 col-xs-12">
