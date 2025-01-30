@@ -1,6 +1,7 @@
 <!DOCTYPE html>
+<html class="no-js" lang="en">
 <head>
-d>
+
     <meta charset="utf-8">
     <title>Jakerz | About</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -15,11 +16,8 @@ d>
     <link rel="stylesheet" href="user/assets/css/custom.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
-
-
-
 <body>
-    
+<!-- @include('user.header') -->
     <main class="main">
         <H1>About</H1>
     </main>
