@@ -102,11 +102,13 @@
             <div class="detail-extralink">
                 <form action="{{url('add-to-cart',$product->id)}}" method="post">
                     @csrf
-                    <div class="number" >
-                        <span class="minus">-</span>
-                        <input class="unclickable-input" name="quantity" type="number" value="1" min="1"/>
-                        <span class="plus">+</span>
-                    </div>
+                    <div class="number" style="display: flex; align-items: center; gap: 5px;">
+    <span class="minus" style="cursor: pointer; padding: 5px 10px; background: #ddd; border-radius: 5px;">-</span>
+    <input class="unclickable-input" name="quantity" type="number" value="1" min="1"
+        style="width: 50px; text-align: center; border: 1px solid #ccc; border-radius: 5px; padding: 5px;" />
+    <span class="plus" style="cursor: pointer; padding: 5px 10px; background: #ddd; border-radius: 5px;">+</span>
+</div>
+
                     <div class="product-extra-link2">
                         @if($product->quantity <1)
                             <div>
@@ -266,7 +268,7 @@
     Template  JS -->
     <script src="user/assets/js/main.js?v=3.3"></script>
     <script src="user/assets/js/shop.js?v=3.3"></script></body>
-    <script>
+    <!-- <script>
         	$(document).ready(function() {
 			$('.minus').click(function () {
 				var $input = $(this).parent().find('input');
@@ -283,6 +285,18 @@
 				return false;
 			});
 		});
-    </script>
+    </script> -->
+<script>
+    document.querySelector('.minus').addEventListener('click', function() {
+        const input = document.querySelector('.unclickable-input');
+        if (input.value > 1) {
+            input.value = parseInt(input.value) - 1;
+        }
+    });
 
+    document.querySelector('.plus').addEventListener('click', function() {
+        const input = document.querySelector('.unclickable-input');
+        input.value = parseInt(input.value) + 1;
+    });
+</script>
 </html>
