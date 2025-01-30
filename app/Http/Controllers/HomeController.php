@@ -455,10 +455,11 @@ class HomeController extends Controller
     }
 
     public function about()
-    {
-      
-            return view('user.about');
-        }
+{
+    $cartData = session()->has('cart') ? session('cart') : collect(); // Example data retrieval
+    return view('user.about', compact('cartData'));
+}
+
     }
 
 
