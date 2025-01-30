@@ -2,7 +2,7 @@
 <head>
 d>
     <meta charset="utf-8">
-    <title>Jakerz | My Cart</title>
+    <title>Jakerz | About</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
