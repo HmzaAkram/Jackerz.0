@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-
+    <base href="/public">
     <meta charset="utf-8">
     <title>Jakerz | About</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -11,6 +11,9 @@
     <meta property="og:type" content="">
     <meta property="og:url" content="">
     <meta property="og:image" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="user/assets/imgs/theme/favicon.ico">
+    <link rel="stylesheet" href="user/assets/css/main.css">
+    <link rel="stylesheet" href="user/assets/css/custom.css">
 </head>
 <body>
 @include('user.header')
@@ -18,7 +21,31 @@
     <main class="main">
         <H1>About</H1>
     </main>
-
+    @include('user.footer')    
+    <!-- Vendor JS-->
+    <script src="user/assets/js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="user/assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="user/assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
+    <script src="user/assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="user/assets/js/plugins/slick.js"></script>
+    <script src="user/assets/js/plugins/jquery.syotimer.min.js"></script>
+    <script src="user/assets/js/plugins/wow.js"></script>
+    <script src="user/assets/js/plugins/jquery-ui.js"></script>
+    <script src="user/assets/js/plugins/perfect-scrollbar.js"></script>
+    <script src="user/assets/js/plugins/magnific-popup.js"></script>
+    <script src="user/assets/js/plugins/select2.min.js"></script>
+    <script src="user/assets/js/plugins/waypoints.js"></script>
+    <script src="user/assets/js/plugins/counterup.js"></script>
+    <script src="user/assets/js/plugins/jquery.countdown.min.js"></script>
+    <script src="user/assets/js/plugins/images-loaded.js"></script>
+    <script src="user/assets/js/plugins/isotope.js"></script>
+    <script src="user/assets/js/plugins/scrollup.js"></script>
+    <script src="user/assets/js/plugins/jquery.vticker-min.js"></script>
+    <script src="user/assets/js/plugins/jquery.theia.sticky.js"></script>
+    <!-- <script src="user/assets/js/plugins/jquery.elevatezoom.js"></script>
+    Template  JS -->
+    <script src="user/assets/js/main.js?v=3.3"></script>
+    <script src="user/assets/js/shop.js?v=3.3"></script>
        
     </body>
 
